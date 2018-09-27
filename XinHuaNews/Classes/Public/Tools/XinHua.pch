@@ -1,0 +1,48 @@
+//
+//  XinHua.pch
+//  XinHuaNews
+//
+//  Created by Mc on 2018/9/13.
+//  Copyright © 2018年 Mc. All rights reserved.
+//
+
+#ifndef XinHua_pch
+#define XinHua_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#define RGB(Red,Green,Blue,Alpha) [UIColor colorWithRed:Red/255.0 green:Green/255.0 blue:Blue/255.0 alpha:Alpha]
+#pragma mark - 字号
+#define TinyFontSize        ISUnderIPhone6 ? 8 : 10
+#define SmallFontSize        ISUnderIPhone6 ? 10 : 12 //小字体
+#define LittleFontSize        ISUnderIPhone6 ? 12 : 14 //小字体
+#define NormalFontSize        ISUnderIPhone6 ? 14 : 16 //普通字体大小
+#define LargeFontSize        ISUnderIPhone6 ? 16 : 18 //大字体
+#define HugeFontSize        ISUnderIPhone6 ? 18 : 20 //特大
+#define TitleFontSize        ISUnderIPhone6 ? 22 : 24 //特大
+
+#define DominantColor RGB(63, 120, 217, 1)      //程序主色调 #3F78D9
+#define DominantGrayColor RGB(134, 142, 151, 1)     //程序灰色调 #868E97
+
+#define IOS8 [[[UIDevice currentDevice]systemVersion] floatValue] >= 8.0
+#define IOS9 [[[UIDevice currentDevice]systemVersion] floatValue] >= 9.0
+#define IOS11 [[[UIDevice currentDevice]systemVersion] floatValue] >= 11.0
+
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define ISUnderIPhone6 ([[UIScreen mainScreen] currentMode].size.width <= 640)
+
+#define SCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+//状态栏高度
+#define Statusbar_Height ([[UIApplication sharedApplication] statusBarFrame].size.height)
+//导航栏高度
+#define Nav_Height (self.navigationController.navigationBar.frame.size.height)
+//TabBar高度
+#define TabBar_Height (self.tabBarController.tabBar.bounds.size.height)
+
+#import "Masonry.h"
+#import "UIView+Frame.h"
+//#import <SVProgressHUD.h>
+
+#endif /* XinHua_pch */

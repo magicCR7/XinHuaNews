@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <AFNetworking.h>
+#import "CustomTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,17 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    //创建窗口
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    //设置根视图控制器
+    CustomTabBarController * tabBarVc = [[CustomTabBarController alloc] init];
+//    XCMAdViewController * adVc = [[XCMAdViewController alloc]init];
+    self.window.rootViewController = tabBarVc;
+    //显示窗口 成为主窗口
+    [self.window makeKeyAndVisible];
+    // 开始监控网络状况
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    
     return YES;
 }
 

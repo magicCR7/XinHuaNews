@@ -71,10 +71,6 @@
                                        ControllerViewArray:self.vcViewArray
                                                 TitleArray:self.titlesArray
                                            MaxShowTitleNum:6];
-//    self.segmentMenu.topView.layer.shadowColor = [UIColor blackColor].CGColor;
-//    self.segmentMenu.topView.layer.shadowOpacity = 0.3f;
-//    self.segmentMenu.topView.layer.shadowRadius = 1.0;
-//    self.segmentMenu.topView.layer.shadowOffset = CGSizeMake(-3, 1);
     [self.view addSubview:self.segmentMenu];
 }
 

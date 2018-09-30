@@ -17,9 +17,54 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]}];
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     [self setBackButton];
     self.view .backgroundColor = [UIColor whiteColor];
+    [self setNoDataViews];
     // Do any additional setup after loading the view.
+}
+
+- (void)setNoDataViews {
+    _noDataImageView = [UIImageView new];
+    _noDataImageView.hidden = YES;
+    [_noDataImageView setImage:[UIImage imageNamed:@"noDataImage"]];
+    [self.view addSubview:_noDataImageView];
+    [self.noDataImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.offset(0);
+        make.top.offset(100);
+        make.height.equalTo(@160);
+        make.width.equalTo(@230);
+    }];
+    
+    _noDataLabel = [UILabel new];
+    _noDataLabel.hidden = YES;
+    _noDataLabel.text = @"暂无订阅内容~";
+    _noDataLabel.textAlignment = NSTextAlignmentCenter;
+    _noDataLabel.font = [UIFont systemFontOfSize:LargeFontSize];
+    _noDataLabel.textColor = DominantGrayColor;
+    [self.view addSubview:_noDataLabel];
+    [self.noDataLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.greaterThanOrEqualTo(@100);
+        make.centerX.offset(0);
+        make.top.equalTo(self.noDataImageView.mas_bottom).offset(20);
+        make.height.equalTo(@20);
+    }];
+    
+    _noDataButton = [UIButton new];
+    _noDataButton.hidden = YES;
+    _noDataButton.layer.masksToBounds = YES;
+    _noDataButton.layer.cornerRadius = 17;
+    [_noDataButton setTitle:@"去发现" forState:UIControlStateNormal];
+    _noDataButton.titleLabel.font = [UIFont systemFontOfSize:LargeFontSize];
+    _noDataButton.backgroundColor = DominantGrayColor;
+    [self.view addSubview:_noDataButton];
+    [_noDataButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.offset(0);
+        make.top.equalTo(self.noDataLabel.mas_bottom).offset(100);
+        make.height.equalTo(@34);
+        make.width.equalTo(@110);
+    }];
+    
 }
 
 - (void)setBackButton {

@@ -10,6 +10,10 @@
 #import "MineTableViewCell.h"
 #import "SettingViewController.h"
 #import "MessageCenterViewController.h"
+#import "MySubscribeViewController.h"
+#import "MyCollectionViewController.h"
+#import "MyCommentViewController.h"
+#import "SuggestionViewController.h"
 
 @interface MineViewController ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -139,7 +143,7 @@
         
         //分割线
         UIView *lineView = [UIView new];
-        lineView.backgroundColor = RGB(96, 96, 96, 0.1);
+        lineView.backgroundColor = lineColor;
         [self.whiteView addSubview:lineView];
         [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.whiteView.mas_centerX);
@@ -285,6 +289,54 @@
         [testView.layer insertSublayer:layer atIndex:0];
         testView.backgroundColor = UIColor.clearColor;
         cell.backgroundView = testView;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.section) {
+        case 0:{
+            switch (indexPath.row) {
+                case 0:{
+                    MySubscribeViewController *subscribeVc = [[MySubscribeViewController alloc] init];
+                    subscribeVc.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:subscribeVc animated:YES];
+                }break;
+                case 1:{
+                    
+                }break;
+                case 2:{
+                    MyCollectionViewController *collectionVc = [[MyCollectionViewController alloc] init];
+                    collectionVc.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:collectionVc animated:YES];
+                }break;
+                    
+                default:
+                    break;
+            }
+        }break;
+        case 1:{
+            switch (indexPath.row) {
+                case 0:{
+                    MyCommentViewController *commentVc = [[MyCommentViewController alloc] init];
+                    commentVc.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:commentVc animated:YES];
+                }break;
+                case 1:{
+                    
+                }break;
+                    
+                default:
+                    break;
+            }
+        }break;
+        case 2:{
+            SuggestionViewController *suggestionVc = [[SuggestionViewController alloc] init];
+            suggestionVc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:suggestionVc animated:YES];
+        }break;
+            
+        default:
+            break;
     }
 }
 

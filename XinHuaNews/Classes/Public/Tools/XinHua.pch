@@ -24,6 +24,7 @@
 
 #define DominantColor RGB(63, 120, 217, 1)      //程序主色调 #3F78D9
 #define DominantGrayColor RGB(134, 142, 151, 1)     //程序灰色调 #868E97
+#define lineColor RGB(96, 96, 96, 0.2)  //分割线背景色
 
 #define IOS8 [[[UIDevice currentDevice]systemVersion] floatValue] >= 8.0
 #define IOS9 [[[UIDevice currentDevice]systemVersion] floatValue] >= 9.0

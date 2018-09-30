@@ -10,4 +10,8 @@
 
 @interface PublicViewController : UIViewController
 
+@property (nonatomic, strong) UIImageView *noDataImageView;
+@property (nonatomic, strong) UILabel *noDataLabel;
+@property (nonatomic, strong) UIButton *noDataButton;
+
 @end

@@ -23,9 +23,7 @@
 
 
 -(instancetype)initWithFrame:(CGRect)frame ControllerViewArray:(NSArray *)viewArr TitleArray:(NSArray *)titleArr {
-    
     if(self = [super initWithFrame:frame]){
-        
        self = [self initWithFrame:frame ControllerViewArray:viewArr TitleArray:titleArr MaxShowTitleNum:HeaderToolBar_MaxShowTitleNum];
     }
     return self;

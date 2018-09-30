@@ -25,8 +25,18 @@
 		4C8F4479215CA9A6008885C1 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F4478215CA9A6008885C1 /* SettingTableViewCell.m */; };
 		4C8F447F215CAF06008885C1 /* MessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F447E215CAF06008885C1 /* MessageCenterViewController.m */; };
 		4C8F4482215CB2B3008885C1 /* MessageCenterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F4481215CB2B3008885C1 /* MessageCenterTableViewCell.m */; };
+		4C8F4485215E046A008885C1 /* MySubscribeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F4484215E046A008885C1 /* MySubscribeViewController.m */; };
+		4C8F4488215E0988008885C1 /* SubscribeAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F4487215E0988008885C1 /* SubscribeAccountViewController.m */; };
+		4C8F448B215E09AD008885C1 /* GovermentAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F448A215E09AD008885C1 /* GovermentAccountViewController.m */; };
+		4CA582C3215F1D84008E1518 /* SubscribeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA582C2215F1D84008E1518 /* SubscribeTableViewCell.m */; };
+		4CA582C6215F4EC7008E1518 /* MyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA582C5215F4EC7008E1518 /* MyCollectionViewController.m */; };
+		4CA582C9215F716F008E1518 /* MyCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA582C8215F716F008E1518 /* MyCommentViewController.m */; };
+		4CA582CC215F73C5008E1518 /* MyCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA582CB215F73C5008E1518 /* MyCommentTableViewCell.m */; };
 		4CACFD95214B8BAB00B48FFD /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CACFD94214B8BAB00B48FFD /* UIView+Frame.m */; };
 		4CACFD98214B8CC200B48FFD /* TitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CACFD97214B8CC200B48FFD /* TitleButton.m */; };
+		4CCB386D2160A23F00A26831 /* SuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB386C2160A23F00A26831 /* SuggestionViewController.m */; };
+		4CCB38792160A6D000A26831 /* PhoneModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB38782160A6D000A26831 /* PhoneModel.m */; };
+		4CCB387C2160AB5100A26831 /* PlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB387B2160AB5100A26831 /* PlaceholderTextView.m */; };
 		4CE5C9982149FCD900FC17D4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5C9972149FCD900FC17D4 /* AppDelegate.m */; };
 		4CE5C99B2149FCD900FC17D4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE5C99A2149FCD900FC17D4 /* ViewController.m */; };
 		4CE5C9A02149FCDA00FC17D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CE5C99F2149FCDA00FC17D4 /* Assets.xcassets */; };
@@ -104,10 +114,30 @@
 		4C8F447E215CAF06008885C1 /* MessageCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCenterViewController.m; sourceTree = "<group>"; };
 		4C8F4480215CB2B3008885C1 /* MessageCenterTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCenterTableViewCell.h; sourceTree = "<group>"; };
 		4C8F4481215CB2B3008885C1 /* MessageCenterTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCenterTableViewCell.m; sourceTree = "<group>"; };
+		4C8F4483215E046A008885C1 /* MySubscribeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySubscribeViewController.h; sourceTree = "<group>"; };
+		4C8F4484215E046A008885C1 /* MySubscribeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySubscribeViewController.m; sourceTree = "<group>"; };
+		4C8F4486215E0988008885C1 /* SubscribeAccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubscribeAccountViewController.h; sourceTree = "<group>"; };
+		4C8F4487215E0988008885C1 /* SubscribeAccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubscribeAccountViewController.m; sourceTree = "<group>"; };
+		4C8F4489215E09AD008885C1 /* GovermentAccountViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GovermentAccountViewController.h; sourceTree = "<group>"; };
+		4C8F448A215E09AD008885C1 /* GovermentAccountViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GovermentAccountViewController.m; sourceTree = "<group>"; };
+		4CA582C1215F1D84008E1518 /* SubscribeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubscribeTableViewCell.h; sourceTree = "<group>"; };
+		4CA582C2215F1D84008E1518 /* SubscribeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubscribeTableViewCell.m; sourceTree = "<group>"; };
+		4CA582C4215F4EC7008E1518 /* MyCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewController.h; sourceTree = "<group>"; };
+		4CA582C5215F4EC7008E1518 /* MyCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewController.m; sourceTree = "<group>"; };
+		4CA582C7215F716F008E1518 /* MyCommentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCommentViewController.h; sourceTree = "<group>"; };
+		4CA582C8215F716F008E1518 /* MyCommentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCommentViewController.m; sourceTree = "<group>"; };
+		4CA582CA215F73C5008E1518 /* MyCommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyCommentTableViewCell.h; sourceTree = "<group>"; };
+		4CA582CB215F73C5008E1518 /* MyCommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyCommentTableViewCell.m; sourceTree = "<group>"; };
 		4CACFD93214B8BAB00B48FFD /* UIView+Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		4CACFD94214B8BAB00B48FFD /* UIView+Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		4CACFD96214B8CC200B48FFD /* TitleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TitleButton.h; sourceTree = "<group>"; };
 		4CACFD97214B8CC200B48FFD /* TitleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TitleButton.m; sourceTree = "<group>"; };
+		4CCB386B2160A23F00A26831 /* SuggestionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuggestionViewController.h; sourceTree = "<group>"; };
+		4CCB386C2160A23F00A26831 /* SuggestionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuggestionViewController.m; sourceTree = "<group>"; };
+		4CCB38772160A6D000A26831 /* PhoneModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhoneModel.h; sourceTree = "<group>"; };
+		4CCB38782160A6D000A26831 /* PhoneModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhoneModel.m; sourceTree = "<group>"; };
+		4CCB387A2160AB5100A26831 /* PlaceholderTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceholderTextView.h; sourceTree = "<group>"; };
+		4CCB387B2160AB5100A26831 /* PlaceholderTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceholderTextView.m; sourceTree = "<group>"; };
 		4CE5C9932149FCD900FC17D4 /* XinHuaNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XinHuaNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CE5C9962149FCD900FC17D4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4CE5C9972149FCD900FC17D4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -201,6 +231,8 @@
 				4CACFD94214B8BAB00B48FFD /* UIView+Frame.m */,
 				4C12504C21548EA5004B7BB6 /* UIView+Core.h */,
 				4C12504D21548EA5004B7BB6 /* UIView+Core.m */,
+				4CCB38772160A6D000A26831 /* PhoneModel.h */,
+				4CCB38782160A6D000A26831 /* PhoneModel.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -367,6 +399,18 @@
 				4C13609B215B33D800BDC6E8 /* SettingViewController.m */,
 				4C8F447D215CAF06008885C1 /* MessageCenterViewController.h */,
 				4C8F447E215CAF06008885C1 /* MessageCenterViewController.m */,
+				4C8F4483215E046A008885C1 /* MySubscribeViewController.h */,
+				4C8F4484215E046A008885C1 /* MySubscribeViewController.m */,
+				4C8F4486215E0988008885C1 /* SubscribeAccountViewController.h */,
+				4C8F4487215E0988008885C1 /* SubscribeAccountViewController.m */,
+				4C8F4489215E09AD008885C1 /* GovermentAccountViewController.h */,
+				4C8F448A215E09AD008885C1 /* GovermentAccountViewController.m */,
+				4CA582C4215F4EC7008E1518 /* MyCollectionViewController.h */,
+				4CA582C5215F4EC7008E1518 /* MyCollectionViewController.m */,
+				4CA582C7215F716F008E1518 /* MyCommentViewController.h */,
+				4CA582C8215F716F008E1518 /* MyCommentViewController.m */,
+				4CCB386B2160A23F00A26831 /* SuggestionViewController.h */,
+				4CCB386C2160A23F00A26831 /* SuggestionViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -387,6 +431,12 @@
 				4C8F4478215CA9A6008885C1 /* SettingTableViewCell.m */,
 				4C8F4480215CB2B3008885C1 /* MessageCenterTableViewCell.h */,
 				4C8F4481215CB2B3008885C1 /* MessageCenterTableViewCell.m */,
+				4CA582C1215F1D84008E1518 /* SubscribeTableViewCell.h */,
+				4CA582C2215F1D84008E1518 /* SubscribeTableViewCell.m */,
+				4CA582CA215F73C5008E1518 /* MyCommentTableViewCell.h */,
+				4CA582CB215F73C5008E1518 /* MyCommentTableViewCell.m */,
+				4CCB387A2160AB5100A26831 /* PlaceholderTextView.h */,
+				4CCB387B2160AB5100A26831 /* PlaceholderTextView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -716,17 +766,25 @@
 				4CE5C99B2149FCD900FC17D4 /* ViewController.m in Sources */,
 				4C24F6A8214F7B81007975E8 /* UIColor+Hex.m in Sources */,
 				4C1250572154C404004B7BB6 /* NewsVideoView.m in Sources */,
+				4CA582C9215F716F008E1518 /* MyCommentViewController.m in Sources */,
 				4CE5C9A62149FCDA00FC17D4 /* main.m in Sources */,
 				4C59F6892159D39D00DE1B49 /* OnePicTableViewCell.m in Sources */,
+				4CCB38792160A6D000A26831 /* PhoneModel.m in Sources */,
+				4C8F4485215E046A008885C1 /* MySubscribeViewController.m in Sources */,
 				4CE5C9ED214A309300FC17D4 /* SpotViewController.m in Sources */,
 				4CE5C9F6214A30B400FC17D4 /* MineViewController.m in Sources */,
+				4C8F448B215E09AD008885C1 /* GovermentAccountViewController.m in Sources */,
 				4C24F69C214F4082007975E8 /* UniversalNewsViewController.m in Sources */,
 				4CE5C9982149FCD900FC17D4 /* AppDelegate.m in Sources */,
 				4CACFD95214B8BAB00B48FFD /* UIView+Frame.m in Sources */,
 				4CE5C9FC214A33B100FC17D4 /* CustomeTabBar.m in Sources */,
 				4C24F6AA214F7B81007975E8 /* LySegmentMenu.m in Sources */,
 				4CF891432150D76E00DDC2B8 /* CycleScrollView.m in Sources */,
+				4CA582C3215F1D84008E1518 /* SubscribeTableViewCell.m in Sources */,
+				4CCB387C2160AB5100A26831 /* PlaceholderTextView.m in Sources */,
+				4CA582C6215F4EC7008E1518 /* MyCollectionViewController.m in Sources */,
 				4CE5C9EA214A308400FC17D4 /* HomeViewController.m in Sources */,
+				4CA582CC215F73C5008E1518 /* MyCommentTableViewCell.m in Sources */,
 				4C729D2421536C5E00FF3E8F /* PicNewsTableViewCell.m in Sources */,
 				4C136099215B296100BDC6E8 /* MineTableViewCell.m in Sources */,
 				4CACFD98214B8CC200B48FFD /* TitleButton.m in Sources */,
@@ -744,7 +802,9 @@
 				4C12504E21548EA5004B7BB6 /* UIView+Core.m in Sources */,
 				4C8F447F215CAF06008885C1 /* MessageCenterViewController.m in Sources */,
 				4CF301C921523341009DC297 /* NewsTableViewCell.m in Sources */,
+				4CCB386D2160A23F00A26831 /* SuggestionViewController.m in Sources */,
 				4C729D21215347C000FF3E8F /* PublicNewsTableViewCell.m in Sources */,
+				4C8F4488215E0988008885C1 /* SubscribeAccountViewController.m in Sources */,
 				4C13609C215B33D800BDC6E8 /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

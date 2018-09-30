@@ -1,25 +1,24 @@
 //
-//  SubscribeViewController.m
+//  GovermentAccountViewController.m
 //  XinHuaNews
 //
-//  Created by Mc on 2018/9/13.
+//  Created by Mc on 2018/9/28.
 //  Copyright © 2018年 Mc. All rights reserved.
 //
 
-#import "SubscribeViewController.h"
+#import "GovermentAccountViewController.h"
 
-@interface SubscribeViewController ()
-
-@property (nonatomic, strong) UIView *topView;
-@property (nonatomic, strong) UITableView *mainTableView;
+@interface GovermentAccountViewController ()
 
 @end
 
-@implementation SubscribeViewController
+@implementation GovermentAccountViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"订阅号";
+    self.noDataLabel.hidden = NO;
+    self.noDataImageView.hidden = NO;
+    self.noDataButton.hidden = NO;
     // Do any additional setup after loading the view.
 }
 

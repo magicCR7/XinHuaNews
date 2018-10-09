@@ -23,7 +23,8 @@
 -(UIButton *)plusButton{
     if(_plusButton == nil){
         UIButton * btn=[UIButton buttonWithType:UIButtonTypeCustom];
-        btn.backgroundColor = DominantColor;
+        btn.adjustsImageWhenHighlighted = NO;
+        [btn setImage:[UIImage imageNamed:@"xiaoXinLogo"] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(jumpToXiaoXin) forControlEvents:UIControlEventTouchUpInside];
 //        [btn setImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
 //        [btn setImage:[UIImage imageNamed:@"tabBar_publish_click_icon"] forState:UIControlStateHighlighted];
@@ -48,7 +49,7 @@
     CGFloat btnH = self.x_height;
     CGFloat x = 0;
     int i=0;
-    self.selectionIndicatorImage = [UIImage imageWithColor:RGB(63, 120, 217, 0.3)  size:CGSizeMake(btnW - 5, btnH - 5)];
+    self.selectionIndicatorImage = [UIImage imageWithColor:RGB(63, 120, 217, 0.3)  size:CGSizeMake(btnW - 5, btnH - 3)];
     for( UIControl *tabBarButton in self.subviews){
         if([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]){
             

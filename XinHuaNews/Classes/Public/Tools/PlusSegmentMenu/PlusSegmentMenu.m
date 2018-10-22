@@ -1,25 +1,25 @@
 //
-//  LySegmentMenu.m
-//  LySegmentMenu
+//  PlusSegmentMenu.m
+//  PlusSegmentMenu
 //
 //  Created by Lying on 16/6/27.
 //  Copyright © 2016年 Lying. All rights reserved.
 //
 
-#import "LySegmentMenu.h"
+#import "PlusSegmentMenu.h"
 #import "UIColor+Hex.h"
-#import "HeaderToolScrollBar.h"
+#import "PlusHeaderToolScrollBar.h"
 
-@interface LySegmentMenu ()<UIScrollViewDelegate,HeaderToolBarDelegate>
+@interface PlusSegmentMenu ()<UIScrollViewDelegate,HeaderToolBarDelegate>
 
-@property (nonatomic ,strong) HeaderToolScrollBar           *headerToolBar;
+@property (nonatomic ,strong) PlusHeaderToolScrollBar           *headerToolBar;
 @property (nonatomic ,assign) CGRect                        childFrame;
 @property (nonatomic ,strong) UIScrollView                  *scrollView;
 @property (nonatomic ,strong) NSArray                       *viewArr;
 
 @end
 
-@implementation LySegmentMenu
+@implementation PlusSegmentMenu
 
 
 -(instancetype)initWithFrame:(CGRect)frame ControllerViewArray:(NSArray *)viewArr TitleArray:(NSArray *)titleArr {
@@ -48,7 +48,7 @@
             self.topView  = [[UIView alloc] initWithFrame:CGRectMake(0, 0, w, y)];
 //            _topView.backgroundColor = [UIColor blueColor];
             [self addSubview:self.topView];
-            self.headerToolBar = [[HeaderToolScrollBar alloc] initWithFrame:CGRectMake(0, 0, w - y, y)];
+            self.headerToolBar = [[PlusHeaderToolScrollBar alloc] initWithFrame:CGRectMake(0, 0, w - y, y)];
             self.headerToolBar.customDelegate = self;
             [self.topView addSubview:self.headerToolBar];
             self.topView.layer.shadowColor = [UIColor blackColor].CGColor;
@@ -58,6 +58,7 @@
             [self.headerToolBar configWithTitleArray:titleArr MaxShowNum:maxNum];
             
             UIButton *plusButton = [[UIButton alloc] initWithFrame:CGRectMake(w - y, 0, y, y)];
+            [plusButton addTarget:self action:@selector(clickAddBtn) forControlEvents:UIControlEventTouchUpInside];
             plusButton.backgroundColor = [UIColor whiteColor];
             plusButton.titleLabel.font = [UIFont systemFontOfSize:HugeFontSize];
             [plusButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -69,6 +70,7 @@
             UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:_childFrame];
             y = 0;
             x += 0;
+            scrollView.showsHorizontalScrollIndicator = NO;
             UIView *view = viewArr[0];
             view.frame = CGRectMake(x,y,w,h);
             [scrollView addSubview:view];
@@ -94,7 +96,7 @@
 
 
 #pragma mark ---------- HeaderToolBar Delegate
-- (void)HeaderToolScrollBar:(HeaderToolScrollBar *)headerToolBar didSelectItemWithTitle:(NSString *)title withIndex:(NSInteger)index{
+- (void)PlusHeaderToolScrollBar:(PlusHeaderToolScrollBar *)headerToolBar didSelectItemWithTitle:(NSString *)title withIndex:(NSInteger)index{
     
     CGFloat x = self.childFrame.origin.x;
     CGFloat y = 0;
@@ -104,8 +106,8 @@
     x += index * w;
     [self.scrollView scrollRectToVisible:CGRectMake(x, y, w , h) animated:NO];
     
-    if([self.delegate respondsToSelector:@selector(LySegmentMenuCurrentView:didSelectItemWithIndex:)]){
-        [self.delegate LySegmentMenuCurrentView:self.viewArr[index] didSelectItemWithIndex:index];
+    if([self.delegate respondsToSelector:@selector(PlusSegmentMenuCurrentView:didSelectItemWithIndex:)]){
+        [self.delegate PlusSegmentMenuCurrentView:self.viewArr[index] didSelectItemWithIndex:index];
     }
 }
 
@@ -138,8 +140,8 @@
     NSInteger page = scrollView.contentOffset.x / self.childFrame.size.width;
     [self.headerToolBar changeSelectItemWithIndex:page];
     
-    if([self.delegate respondsToSelector:@selector(LySegmentMenuCurrentView:didSelectItemWithIndex:)]){
-        [self.delegate LySegmentMenuCurrentView:self.viewArr[page] didSelectItemWithIndex:page];
+    if([self.delegate respondsToSelector:@selector(PlusSegmentMenuCurrentView:didSelectItemWithIndex:)]){
+        [self.delegate PlusSegmentMenuCurrentView:self.viewArr[page] didSelectItemWithIndex:page];
     }
 }
 
@@ -148,11 +150,16 @@
     NSInteger page = scrollView.contentOffset.x / self.childFrame.size.width;
     [self.headerToolBar changeSelectItemWithIndex:page];
     
-    if([self.delegate respondsToSelector:@selector(LySegmentMenuCurrentView:didSelectItemWithIndex:)]){
-        [self.delegate LySegmentMenuCurrentView:self.viewArr[page] didSelectItemWithIndex:page];
+    if([self.delegate respondsToSelector:@selector(PlusSegmentMenuCurrentView:didSelectItemWithIndex:)]){
+        [self.delegate PlusSegmentMenuCurrentView:self.viewArr[page] didSelectItemWithIndex:page];
     }
 }
 
+- (void)clickAddBtn {
+    if (self.addChannelBlock) {
+        self.addChannelBlock();
+    }
+}
  
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -8,6 +8,10 @@
 
 #import "SubscribeViewController.h"
 #import "NewsTableViewCell.h"
+#import "RecommendationTableViewCell.h"
+#import "MySubscribeViewController.h"
+#import "SubscribeCenterViewController.h"
+#import "SearchViewController.h"
 
 @interface SubscribeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -24,6 +28,11 @@
     [super viewDidLoad];
     self.title = @"订阅号";
     [self setupViews];
+    UIButton * rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    rightBtn.frame = CGRectMake(0, 0, 20,20);
+    [rightBtn setBackgroundImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
+    [rightBtn addTarget:self action:@selector(jumpToSearch) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:rightBtn];
     // Do any additional setup after loading the view.
 }
 
@@ -92,25 +101,93 @@
     }];
 }
 
+#pragma mark - 跳转进入搜索页面
+- (void)jumpToSearch {
+    SearchViewController *searchVc = [[SearchViewController alloc] init];
+    searchVc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:searchVc animated:YES];
+}
+
 #pragma mark - 顶部按钮点击事件
 - (void)topButtonClicked:(UIButton *)sender {
     if (sender.tag == 101) {
-        
+        MySubscribeViewController *subscribeVc = [[MySubscribeViewController alloc] init];
+        subscribeVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:subscribeVc animated:YES];
     } else if (sender.tag == 102) {
-        
+        SubscribeCenterViewController *centerVc = [[SubscribeCenterViewController alloc] init];
+        centerVc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:centerVc animated:YES];
     }
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+#pragma mark - tableViewDelegate
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 1) {
+        UIView *headerView = [UIView new];
+        headerView.backgroundColor = [UIColor clearColor];
+        UIView *leftLineV = [[UIView alloc] initWithFrame:CGRectMake(10, 20, 5, 20)];
+        leftLineV.backgroundColor = DominantColor;
+        leftLineV.layer.masksToBounds = YES;
+        leftLineV.layer.cornerRadius = 2.5f;
+        [headerView addSubview:leftLineV];
+        
+        UILabel *titleLab = [[UILabel alloc] init];
+        titleLab.text = @"推荐订阅";
+        titleLab.font = [UIFont systemFontOfSize:HugeFontSize];
+        [headerView addSubview:titleLab];
+        [titleLab mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(leftLineV.mas_right).offset(10);
+            make.centerY.equalTo(leftLineV);
+            make.height.equalTo(@(HugeFontSize));
+            make.width.equalTo(@200);
+        }];
+        
+        UIButton *rightBtn = [UIButton new];
+        [rightBtn setTitle:@"更多>" forState:UIControlStateNormal];
+        rightBtn.titleLabel.font = [UIFont systemFontOfSize:LittleFontSize];
+        [rightBtn setTitleColor:DominantGrayColor forState:UIControlStateNormal];
+        [headerView addSubview:rightBtn];
+        [rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.right.offset(-10);
+            make.centerY.equalTo(titleLab);
+            make.height.equalTo(@20);
+            make.width.greaterThanOrEqualTo(@20);
+        }];
+        return headerView;
+    }
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 1) {
+        return 60;
+    }
     return 0.01;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
+}
+
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    switch (section) {
+        case 0:
+            return 3;
+            break;
+        case 1:
+            return 1;
+            break;
+        case 2:
+            return 3;
+            break;
+            
+        default:
+            break;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -118,6 +195,14 @@
     NewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
         cell = [[NewsTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+    }
+    if (indexPath.section == 1) {
+        static NSString *identifier = @"RecommendationTableViewCell";
+        RecommendationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+        if (!cell) {
+            cell = [[RecommendationTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        }
+        return cell;
     }
     return cell;
 }
@@ -127,14 +212,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

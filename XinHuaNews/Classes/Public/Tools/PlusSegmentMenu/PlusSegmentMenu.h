@@ -1,6 +1,6 @@
 //
-//  LySegmentMenu.h
-//  LySegmentMenu
+//  PlusSegmentMenu.h
+//  PlusSegmentMenu
 //
 //  Created by Lying on 16/6/27.
 //  Copyright © 2016年 Lying. All rights reserved.
@@ -12,18 +12,18 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol LySegmentMenuDelegate <NSObject>
+@protocol PlusSegmentMenuDelegate <NSObject>
 /**
  *  代理方法
  *
  *  @param currentView 当前的UIview
  *  @param index       当前view的索引
  */
-- (void)LySegmentMenuCurrentView:(UIView *)currentView didSelectItemWithIndex:(NSInteger)index;
+- (void)PlusSegmentMenuCurrentView:(UIView *)currentView didSelectItemWithIndex:(NSInteger)index;
 
 @end
 
-@interface LySegmentMenu : UIView
+@interface PlusSegmentMenu : UIView
 
 /**
  *  初始化方法1
@@ -51,7 +51,8 @@
 -(instancetype)initWithFrame:(CGRect)frame ControllerViewArray:(NSArray *)viewArr TitleArray:(NSArray *)titleArr MaxShowTitleNum:(NSInteger)maxNum;
 
 
-@property (nonatomic ,weak) id <LySegmentMenuDelegate> delegate;
+@property (nonatomic ,weak) id <PlusSegmentMenuDelegate> delegate;
+@property(nonatomic, copy)void(^addChannelBlock)(void) ;
 
 @end
 

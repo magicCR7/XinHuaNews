@@ -1,5 +1,5 @@
 //
-//  HeaderToolScrollBar.m
+//  PlusHeaderToolScrollBar.m
 //  LyScrollMenu
 //
 //  Created by Lying on 16/6/27.
@@ -21,9 +21,9 @@
 
 #import "NSString+CalculateFontSize.h"
 #import "UIColor+Hex.h"
-#import "HeaderToolScrollBar.h"
+#import "PlusHeaderToolScrollBar.h"
 
-@interface HeaderToolScrollBar ()
+@interface PlusHeaderToolScrollBar ()
 @property (nonatomic ,assign) NSInteger titleCount;
 @property (nonatomic ,assign) NSInteger maxShowNum;
 @property (nonatomic ,strong) UIView    *indicator;
@@ -31,7 +31,7 @@
 @end
 
 
-@implementation HeaderToolScrollBar
+@implementation PlusHeaderToolScrollBar
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
@@ -86,7 +86,7 @@
             if (i == 0) {
                 titleLable.textColor = [UIColor blackColor];//[UIColor whiteColor];
                 //                titleLable.backgroundColor = [UIColor orangeColor];
-                titleLable.font = [UIFont boldSystemFontOfSize:NormalFontSize];
+                titleLable.font = [UIFont systemFontOfSize:NormalFontSize weight:NormalFontSize];
 
                 self.indicator.frame = CGRectMake((btnWidth - indicator_width)/2, Button_Size_Height, indicator_width, View_Size_Height - Button_Size_Height);
             }
@@ -111,8 +111,8 @@
                 //                titleLab.backgroundColor = [UIColor orangeColor];
                 
                 if (self.customDelegate) {
-                    if ([self.customDelegate respondsToSelector:@selector(HeaderToolScrollBar:didSelectItemWithTitle:withIndex:)]) {
-                        [self.customDelegate HeaderToolScrollBar:self didSelectItemWithTitle:titleLab.text withIndex:sender.tag-Base_TAG];
+                    if ([self.customDelegate respondsToSelector:@selector(PlusHeaderToolScrollBar:didSelectItemWithTitle:withIndex:)]) {
+                        [self.customDelegate PlusHeaderToolScrollBar:self didSelectItemWithTitle:titleLab.text withIndex:sender.tag-Base_TAG];
                     }
                 }
                 
@@ -146,12 +146,12 @@
                 if (index == subButton.tag - Base_TAG) {
                     indexBtn = subButton;
                     UILabel *titleLab = subButton.subviews[0];
-                    titleLab.font = [UIFont boldSystemFontOfSize:NormalFontSize];
+                    titleLab.font = [UIFont systemFontOfSize:NormalFontSize weight:NormalFontSize];
                     titleLab.textColor = [UIColor blackColor];//[UIColor whiteColor];
                     //                    titleLab.backgroundColor = [UIColor orangeColor];
                 }else{
                     UILabel *titleLab = subButton.subviews[0];
-                    titleLab.font = [UIFont systemFontOfSize:NormalFontSize];
+                    titleLab.font = [UIFont systemFontOfSize:NormalFontSize weight:NormalFontSize];
                     titleLab.textColor = DominantGrayColor;//[UIColor blackColor];
                     titleLab.backgroundColor = [UIColor clearColor];
                 }

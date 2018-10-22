@@ -44,6 +44,7 @@
 
 #import "Masonry.h"
 #import "UIView+Frame.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 //#import <SVProgressHUD.h>
 
 #endif /* XinHua_pch */

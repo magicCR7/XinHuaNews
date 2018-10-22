@@ -56,7 +56,8 @@
     //imageview
     for (int i =0; i<self.picNum; i++) {
         UIImageView *imageV = [[UIImageView alloc]initWithFrame:CGRectMake(10 + i * (self.x_width - 40), 0, self.x_width -40 - 20, self.x_width - 40)];
-        [imageV setImage:[UIImage imageNamed:@"3"]];
+//        [imageV setImage:[UIImage imageNamed:@"3"]];
+        [imageV sd_setImageWithURL:[NSURL URLWithString:_pictureUrlArray[i]]];
         imageV.backgroundColor = [UIColor blueColor];
         [self.mainScrollView addSubview:imageV];
 

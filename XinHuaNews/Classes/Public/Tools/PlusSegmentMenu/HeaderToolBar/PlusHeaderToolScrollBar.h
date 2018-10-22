@@ -1,5 +1,5 @@
 //
-//  HeaderToolScrollBar.h
+//  PlusHeaderToolScrollBar
 //  LyScrollMenu
 //
 //  Created by Lying on 16/6/27.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class HeaderToolScrollBar;
+@class PlusHeaderToolScrollBar;
 
 @protocol HeaderToolBarDelegate <NSObject>
 
@@ -18,12 +18,12 @@
  *  @param title         按钮标题
  *  @param index         按钮下标
  */
-- (void)HeaderToolScrollBar:(HeaderToolScrollBar *)headerToolBar didSelectItemWithTitle:(NSString *)title withIndex:(NSInteger)index;
+- (void)PlusHeaderToolScrollBar:(PlusHeaderToolScrollBar *)headerToolBar didSelectItemWithTitle:(NSString *)title withIndex:(NSInteger)index;
 
 @end
 
 
-@interface HeaderToolScrollBar : UIScrollView
+@interface PlusHeaderToolScrollBar : UIScrollView
 
 /**
  *  配置显示的标题

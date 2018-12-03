@@ -78,28 +78,26 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    _littleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 25)];
+    _littleView.backgroundColor = [UIColor clearColor];
+    _headLittleLabel = [[UILabel alloc] init];
+    _headLittleLabel.font = [UIFont systemFontOfSize:SmallFontSize];
+    _headLittleLabel.backgroundColor = RGB(251, 97, 103, 1);
+    _headLittleLabel.text = @" 现场|直播中·33675人观看 ";
+    _headLittleLabel.textColor = [UIColor whiteColor];
     
+    [_littleView addSubview:_headLittleLabel];
+    [_headLittleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.offset(10);
+        make.width.greaterThanOrEqualTo(@20);
+        make.height.equalTo(@25);
+    }];
+    [_headLittleLabel layoutIfNeeded];
+    [_headLittleLabel addRoundedCorners:UIRectCornerTopRight|UIRectCornerTopLeft  withRadii:CGSizeMake(5.0, 5.0) viewRect:CGRectMake(0, 0, _headLittleLabel.x_width, 25)];
     if (section == 0) {
         CycleScrollView *cycleView = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 100, SCREEN_WIDTH, 200)];
         return cycleView;
     } else if (section == 1) {
-        _littleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 25)];
-        _littleView.backgroundColor = [UIColor clearColor];
-        _headLittleLabel = [[UILabel alloc] init];
-        _headLittleLabel.font = [UIFont systemFontOfSize:SmallFontSize];
-        _headLittleLabel.backgroundColor = RGB(251, 97, 103, 1);
-        _headLittleLabel.text = @" 现场|直播中·33675人观看 ";
-        _headLittleLabel.textColor = [UIColor whiteColor];
-
-        [_littleView addSubview:_headLittleLabel];
-        [_headLittleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.left.offset(10);
-            make.width.greaterThanOrEqualTo(@20);
-            make.height.equalTo(@25);
-        }];
-        [_headLittleLabel layoutIfNeeded];
-        [_headLittleLabel addRoundedCorners:UIRectCornerTopRight|UIRectCornerTopLeft  withRadii:CGSizeMake(5.0, 5.0) viewRect:CGRectMake(0, 0, _headLittleLabel.x_width, 25)];
-        
         return _littleView;
     } else if (section == 2) {
         _headLittleLabel.text = @"  专题  ";

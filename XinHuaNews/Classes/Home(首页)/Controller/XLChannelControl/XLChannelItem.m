@@ -91,9 +91,11 @@
 {
     _isMoving = isMoving;
     if (_isMoving) {
+        _textLabel.textColor = [UIColor clearColor];
         self.backgroundColor = [UIColor clearColor];
         _borderLayer.hidden = false;
     }else{
+        _textLabel.textColor = [self textColor];
         self.backgroundColor = [self backgroundColor];
         _borderLayer.hidden = true;
     }

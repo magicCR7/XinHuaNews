@@ -68,7 +68,6 @@ static CGFloat CellMarginY = 10.0f;
     [_collectionView addSubview:_dragingItem];
 }
 
-#pragma mark -
 #pragma mark LongPressMethod
 -(void)longPressMethod:(UILongPressGestureRecognizer*)gesture{
     CGPoint point = [gesture locationInView:_collectionView];

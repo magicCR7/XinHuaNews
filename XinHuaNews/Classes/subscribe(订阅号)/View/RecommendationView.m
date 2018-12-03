@@ -82,4 +82,14 @@
     
 }
 
+- (void)subBtnClicked:(UIButton *)sender {
+    sender.selected =! sender.selected;
+    if (sender.selected) {
+        sender.backgroundColor = RGB(125, 143, 158, 1);
+        [sender setTitle:@"已订阅" forState:UIControlStateSelected];
+    } else {
+        sender.backgroundColor = DominantColor;
+    }
+}
+
 @end

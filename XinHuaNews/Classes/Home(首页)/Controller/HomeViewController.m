@@ -17,11 +17,6 @@
 @interface HomeViewController ()<UIScrollViewDelegate>
 @property (nonatomic,weak) UIView *titleView;
 
-@property (nonatomic,weak) UIScrollView *scrollView;
-//下划线
-@property (nonatomic,weak) UIView *titleUnderline;
-//记录上一次点击的标题按钮
-@property (nonatomic ,strong) TitleButton *previousClickedTittleButton;
 @property (nonatomic, strong) PlusSegmentMenu *segmentMenu;
 @property (nonatomic, strong) UIView *navView;
 @property (nonatomic, strong) UIButton *searchButton;

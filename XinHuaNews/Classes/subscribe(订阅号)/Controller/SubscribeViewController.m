@@ -114,7 +114,7 @@
         MySubscribeViewController *subscribeVc = [[MySubscribeViewController alloc] init];
         subscribeVc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:subscribeVc animated:YES];
-    } else if (sender.tag == 102) {
+    } else if (sender.tag == 102 || sender.tag == 103) {
         SubscribeCenterViewController *centerVc = [[SubscribeCenterViewController alloc] init];
         centerVc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:centerVc animated:YES];
@@ -145,6 +145,8 @@
         
         UIButton *rightBtn = [UIButton new];
         [rightBtn setTitle:@"更多>" forState:UIControlStateNormal];
+        rightBtn.tag = 103;
+        [rightBtn addTarget:self action:@selector(topButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
         rightBtn.titleLabel.font = [UIFont systemFontOfSize:LittleFontSize];
         [rightBtn setTitleColor:DominantGrayColor forState:UIControlStateNormal];
         [headerView addSubview:rightBtn];

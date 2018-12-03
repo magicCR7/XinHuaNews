@@ -32,7 +32,8 @@
     [self.contentView addSubview:titleLab];
     self.titleLabel = titleLab;
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.offset(padding);
+        make.left.offset(padding);
+        make.top.offset(15);
         make.right.offset(-padding);
         make.height.greaterThanOrEqualTo(@(NormalFontSize));
     }];
@@ -43,12 +44,13 @@
     self.mainImageView = mainImageV;
     [self.mainImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.offset(0);
-        make.top.equalTo(self.titleLabel.mas_bottom).offset(padding);
+        make.top.equalTo(self.titleLabel.mas_bottom).offset(15);
         make.height.equalTo(@200);
     }];
     
     UILabel *timeLab = [UILabel new];
     timeLab.text = @"18-09-24";
+    timeLab.numberOfLines = 0;
     timeLab.textColor = DominantGrayColor;
     timeLab.font = [UIFont systemFontOfSize:TinyFontSize];
     [self.contentView addSubview:timeLab];
@@ -56,8 +58,8 @@
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.mainImageView.mas_bottom).offset(padding);
         make.left.offset(padding);
-        make.height.equalTo(@12);
-        make.width.greaterThanOrEqualTo(@20);
+        make.height.greaterThanOrEqualTo(@12);
+        make.right.offset(-padding);
         make.bottom.offset(-padding);
     }];
 }

@@ -13,7 +13,7 @@
 #import <FMDatabase.h>
 #import "SearchResultViewController.h"
 
-@interface SearchViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface SearchViewController ()<UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate>
 
 @property (nonatomic, strong) UIView *navView;
 @property (nonatomic, strong) NSArray *dataArray;
@@ -23,6 +23,8 @@
 @property (nonatomic, strong) UITableView *mainTableView;
 @property (nonatomic, strong) NSMutableArray *historyWordsArray;
 @property (nonatomic, strong) UITextField *seacrhTextField;
+@property (nonatomic, strong) UIButton *voiceButton;//语音图标
+@property (nonatomic, strong) SearchResultViewController *resultVc;
 
 @end
 
@@ -62,12 +64,15 @@
     [topView addSubview:searchImageV];
     
     //语音图标
-    UIImageView *voiceImageV = [[UIImageView alloc] initWithFrame:CGRectMake(topView.x_width - topView.x_height, 3, searchImageV.x_height, searchImageV.x_height)];
-    [voiceImageV setImage:[UIImage imageNamed:@"voice"]];
-    [topView addSubview:voiceImageV];
+    UIButton *voiceButton = [[UIButton alloc] initWithFrame:CGRectMake(topView.x_width - topView.x_height, 3, searchImageV.x_height, searchImageV.x_height)];
+    [voiceButton addTarget:self action:@selector(voiceButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [voiceButton setImage:[UIImage imageNamed:@"voice"] forState:UIControlStateNormal];
+    [topView addSubview:voiceButton];
+    self.voiceButton = voiceButton;
     
     //文本框
     UITextField *seachText = [[UITextField alloc] init];
+    seachText.delegate = self;
     [seachText setPlaceholderColor:DominantGrayColor];
     seachText.font = [UIFont systemFontOfSize:LittleFontSize];
     seachText.placeholder = @"输入搜索关键词";
@@ -76,12 +81,12 @@
     [self.seacrhTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.offset(3);
         make.bottom.offset(-3);
-        make.right.equalTo(voiceImageV.mas_left).offset(-5);
+        make.right.equalTo(voiceButton.mas_left).offset(-5);
         make.left.equalTo(searchImageV.mas_right).offset(5);
     }];
     
     //返回按钮
-    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(navV.x_width - 50, 7, 35, topView.x_height)];
+    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(navV.x_width - 55, 7, 35, topView.x_height)];
     [backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     [backBtn setTitle:@"取消" forState:UIControlStateNormal];
     [backBtn setTitleColor:DominantColor forState:UIControlStateNormal];
@@ -120,6 +125,32 @@
 - (void)back {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+//点击语音按钮
+- (void)voiceButtonClicked:(UIButton *)sender {
+    if (self.seacrhTextField.text.length>0) {
+        self.seacrhTextField.text = @"";
+        [self.voiceButton setImage:[UIImage imageNamed:@"voice"] forState:UIControlStateNormal];
+        if (self.resultVc.view) {
+            [self.resultVc.view removeFromSuperview];
+        }
+    }
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSString * newStr = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    if (newStr.length>0) {
+        [self.voiceButton setImage:[UIImage imageNamed:@"delete_x"] forState:UIControlStateNormal];
+    } else {
+        if (self.resultVc.view) {
+            [self.resultVc.view removeFromSuperview];
+        }
+        [self.voiceButton setImage:[UIImage imageNamed:@"voice"] forState:UIControlStateNormal];
+    }
+    return YES;
+}
+
 
 #pragma mark - TableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -210,10 +241,14 @@
         }
         [weakself saveData:hotWordsStr];
         self.seacrhTextField.text = hotWordsStr;
+        [self.voiceButton setImage:[UIImage imageNamed:@"delete_x"] forState:UIControlStateNormal];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            SearchResultViewController *resultVc = [[SearchResultViewController alloc] init];
-            resultVc.searchTextStr = hotWordsStr;
-            [self.navigationController pushViewController:resultVc animated:YES];
+            self.resultVc = [[SearchResultViewController alloc] init];
+            self.resultVc.view.frame = CGRectMake(0, Nav_Height, SCREEN_WIDTH, SCREEN_HEIGHT);
+            [self addChildViewController:self.resultVc];
+            [self.view addSubview:self.resultVc.view];
+//            resultVc.searchTextStr = hotWordsStr;
+//            [self.navigationController pushViewController:resultVc animated:YES];
         });
     };
     return cell;

@@ -48,7 +48,7 @@
     UILabel *titleLabel = [UILabel new];
     titleLabel.text = @"习近平致信祝贺2018世界人工智能大会开幕";
     titleLabel.numberOfLines = 0;
-    [titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:NormalFontSize]];
+    
     [self.contentView addSubview:titleLabel];
     self.titleLabel = titleLabel;
     
